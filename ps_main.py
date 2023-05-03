@@ -25,7 +25,20 @@ tree = app_commands.CommandTree(bot)
 @tree.command(name='ahoy', description='ARG! Shows ya how I work matey!')
 async def self(interaction: discord.Interaction):
     await interaction.response.send_message('Time for a round of vinegar talk!\n'
-                                            'Use /insult whenever yarrrrr ready you scallywag!')
+                                            'Use /vinegar_talk whenever yarrrrr ready you scallywag!')
+
+
+@tree.command(name='vinegar_talk', description='pick from my lists to craft the ultimate insult ya landlubber!')
+async def self(interaction: discord.Interaction, start, middle, end):
+    start = ['Idiotic', 'Parrot loving', 'Mumbling', 'Bleating',
+             'Blathering', 'Sheep brained', 'Pin headed', 'Pig breathed',
+             'Cricket sized', ]
+    middle = ['Seaweed slurpin', 'Duck billed', 'Pus faced', 'Toothless',
+              'Knuckle dragging', 'Cross eyed', 'Scurvey ridden', 'Clam tongued',
+              'yellow bellied', ]
+    end = ['Whale fart', 'Cow Pie', 'Sack o maggots', 'Swabber',
+           'Cabin boy', 'waste of skin', 'Bag of vomit', 'Anchor headed',
+           'Pieceof filth', ]
 
 
 bot.run(secret_code)
