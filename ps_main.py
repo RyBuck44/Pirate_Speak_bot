@@ -2,6 +2,7 @@ import discord
 from discord import app_commands
 from discord.ext import commands
 import os
+import random
 
 secret_code = os.getenv('PS_TOKEN')
 bot = commands.Bot(command_prefix='!', intents=discord.Intents.all())
@@ -29,7 +30,7 @@ async def self(interaction: discord.Interaction):
 
 
 @tree.command(name='vinegar_talk', description='pick from my lists to craft the ultimate insult ya landlubber!')
-async def self(interaction: discord.Interaction, start, middle, end):
+async def self(interaction: discord.Interaction):
     start = ['Idiotic', 'Parrot loving', 'Mumbling', 'Bleating',
              'Blathering', 'Sheep brained', 'Pin headed', 'Pig breathed',
              'Cricket sized', ]
@@ -40,5 +41,9 @@ async def self(interaction: discord.Interaction, start, middle, end):
            'Cabin boy', 'waste of skin', 'Bag of vomit', 'Anchor headed',
            'Pieceof filth', ]
 
+    s = random.choice(start)
+    m = random.choice(middle)
+    e = random.choice(end)
+    await interaction.response.send_message(f'You arrrr a... {s} {m} {e}!')
 
 bot.run(secret_code)
